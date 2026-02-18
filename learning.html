@@ -6,6 +6,9 @@
   <title>Learning</title>
   <meta name="description" content="Learning resources: ChatGPT, NotebookLM, FlowiseAI." />
   <link rel="stylesheet" href="/OLGA.github.io/assets/css/style.css" />
+   <style>
+    flowise-chatbot { display: none !important; }
+  </style>
 </head>
 
 <body>
@@ -108,68 +111,53 @@
 
   <script src="/OLGA.github.io/assets/js/main.js"></script>
 
-  <script type="module">
-  const FLOWISE_CHATFLOW_ID = "17a9c1ac-2447-4b7b-82e9-2388f00b9481";
-  const FLOWISE_API_HOST = "https://cloud.flowiseai.com";
+<script type="module">
+    const FLOWISE_CHATFLOW_ID = "17a9c1ac-2447-4b7b-82e9-2388f00b9481";
+    const FLOWISE_API_HOST = "https://cloud.flowiseai.com";
 
-  let flowiseInitialized = false;
+    let initialized = false;
 
-  function tryOpenExistingWidget() {
-    const el = document.querySelector("flowise-chatbot");
-    const root = el?.shadowRoot;
-    if (!root) return false;
-
-    // The widget exposes parts; the launcher button is usually inside the shadow root.
-    const launcher = root.querySelector("div[part='button'], button, .chatbot-button");
-    if (launcher) {
-      launcher.click();
-      return true;
-    }
-    return false;
-  }
-
-  async function openFlowiseChat() {
-    // If already initialized, just re-open it
-    if (flowiseInitialized) {
-      if (!tryOpenExistingWidget()) {
-        // fallback: scroll to notes section if widget structure changes
-        location.hash = "#flowise-notes";
+    async function initFlowiseAndOpen() {
+      if (initialized) {
+        // If already initialized, show the launcher bubble so user can re-open if they closed it.
+        const el = document.querySelector("flowise-chatbot");
+        if (el) el.style.display = "";
+        return;
       }
-      return;
-    }
 
-    // Lazy-load + init ONLY on first click
-    const { default: Chatbot } = await import(
-      "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-    );
+      // Lazy-load Flowise embed library
+      const mod = await import("https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js");
+      const Chatbot = mod.default ?? mod;
 
-    Chatbot.init({
-      chatflowid: FLOWISE_CHATFLOW_ID,
-      apiHost: FLOWISE_API_HOST,
-      theme: {
-        button: {
-          // Keep the widget from auto-opening on page load,
-          // but once initialized (on click), open immediately:
-          autoWindowOpen: {
-            autoOpen: true,
-            openDelay: 0,
-            autoOpenOnMobile: true
+      // Init with "autoWindowOpen" so the chat window pops immediately after init
+      Chatbot.init({
+        chatflowid: FLOWISE_CHATFLOW_ID,
+        apiHost: FLOWISE_API_HOST,
+        theme: {
+          button: {
+            autoWindowOpen: {
+              autoOpen: true,
+              openDelay: 0,
+              autoOpenOnMobile: true
+            }
           }
         }
-      }
+      });
+
+      initialized = true;
+
+      // Keep bubble hidden after opening (optional).
+      // If you prefer the bubble to remain visible after open, delete these lines.
+      setTimeout(() => {
+        const el = document.querySelector("flowise-chatbot");
+        if (el) el.style.display = "none";
+      }, 200);
+    }
+
+    document.getElementById("flowise-launch")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      initFlowiseAndOpen();
     });
-
-    flowiseInitialized = true;
-
-    // In some browsers it needs a tick before we can programmatically open it
-    setTimeout(() => tryOpenExistingWidget(), 50);
-  }
-
-  document.getElementById("flowise-launch")?.addEventListener("click", (e) => {
-    e.preventDefault();
-    openFlowiseChat();
-  });
-</script>
-
+  </script>
 </body>
 </html>
