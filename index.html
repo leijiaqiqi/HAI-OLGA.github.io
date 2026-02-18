@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learning & Grading Portal</title>
+  <meta name="description" content="A simple portal for learning tools and grading workflows." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">∑</div>
+        <div class="brand-text">
+          <div class="brand-title">Learning & Grading Portal</div>
+          <div class="brand-subtitle">Academic-style hub for tools and workflows</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link" href="index.html" aria-current="page">Home</a>
+        <a class="nav-link" href="learning.html">Learning</a>
+        <a class="nav-link" href="grading.html">Grading</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <section class="hero">
+      <h1>Welcome</h1>
+      <p class="lead">
+        This site provides quick access to learning resources and a grading workspace.
+        Choose a section to continue.
+      </p>
+
+      <div class="cta-grid">
+        <a class="card cta" href="learning.html">
+          <div class="card-header">
+            <h2>Learning</h2>
+            <p>ChatGPT, NotebookLM, and application logic (FlowiseAI)</p>
+          </div>
+          <div class="card-footer">
+            <span class="button">Open Learning →</span>
+          </div>
+        </a>
+
+        <a class="card cta" href="grading.html">
+          <div class="card-header">
+            <h2>Grading</h2>
+            <p>In progress — placeholder page designed to be extended</p>
+          </div>
+          <div class="card-footer">
+            <span class="button button-secondary">Open Grading →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>About</h2>
+      <p>
+        Built as a static website suitable for GitHub Pages (no backend required).
+        All links open reliably, and the layout is responsive and accessible.
+      </p>
+
+      <div class="note">
+        <strong>Tip:</strong> If you later want a shared header/footer across pages, we can convert
+        this to a lightweight static site generator (e.g., Jekyll) — but this version keeps it
+        simple: just HTML/CSS/JS.
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© <span id="year"></span> Your Name / Lab</div>
+      <div class="muted">Hosted on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
