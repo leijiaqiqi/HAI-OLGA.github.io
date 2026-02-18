@@ -70,26 +70,20 @@
         <!-- 3) FlowiseAI -->
         <article class="card">
           <div class="card-header">
-            <h2>3) Application Logic (FlowiseAI)</h2>
+            <h2>3) Embedding Model</h2>
             <p>
               For now it’s a placeholder for the better design.
             </p>
           </div>
           <div class="card-footer">
-            <a class="button button-secondary" href="" aria-disabled="true">
-              Open FlowiseAI
-            </a>
+            <button class="button button-secondary" id="flowise-launch" type="button">
+                Open Chatting Bot →
+            </button>
           </div>
         </article>
       </div>
     </section>
-    <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-    Chatbot.init({
-        chatflowid: "17a9c1ac-2447-4b7b-82e9-2388f00b9481",
-        apiHost: "https://cloud.flowiseai.com",
-    })
-</script>
+    
 
     <section class="section" id="flowise-notes">
       <h2>Notes: </h2>
@@ -113,5 +107,69 @@
   </footer>
 
   <script src="/OLGA.github.io/assets/js/main.js"></script>
+
+  <script type="module">
+  const FLOWISE_CHATFLOW_ID = "17a9c1ac-2447-4b7b-82e9-2388f00b9481";
+  const FLOWISE_API_HOST = "https://cloud.flowiseai.com";
+
+  let flowiseInitialized = false;
+
+  function tryOpenExistingWidget() {
+    const el = document.querySelector("flowise-chatbot");
+    const root = el?.shadowRoot;
+    if (!root) return false;
+
+    // The widget exposes parts; the launcher button is usually inside the shadow root.
+    const launcher = root.querySelector("div[part='button'], button, .chatbot-button");
+    if (launcher) {
+      launcher.click();
+      return true;
+    }
+    return false;
+  }
+
+  async function openFlowiseChat() {
+    // If already initialized, just re-open it
+    if (flowiseInitialized) {
+      if (!tryOpenExistingWidget()) {
+        // fallback: scroll to notes section if widget structure changes
+        location.hash = "#flowise-notes";
+      }
+      return;
+    }
+
+    // Lazy-load + init ONLY on first click
+    const { default: Chatbot } = await import(
+      "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    );
+
+    Chatbot.init({
+      chatflowid: FLOWISE_CHATFLOW_ID,
+      apiHost: FLOWISE_API_HOST,
+      theme: {
+        button: {
+          // Keep the widget from auto-opening on page load,
+          // but once initialized (on click), open immediately:
+          autoWindowOpen: {
+            autoOpen: true,
+            openDelay: 0,
+            autoOpenOnMobile: true
+          }
+        }
+      }
+    });
+
+    flowiseInitialized = true;
+
+    // In some browsers it needs a tick before we can programmatically open it
+    setTimeout(() => tryOpenExistingWidget(), 50);
+  }
+
+  document.getElementById("flowise-launch")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    openFlowiseChat();
+  });
+</script>
+
 </body>
 </html>
