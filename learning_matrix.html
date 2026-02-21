@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learning</title>
+  <meta name="description" content="Learning resources by chapter: ChatGPT, NotebookLM, FlowiseAI." />
+
+  <link rel="stylesheet" href="OLGA.github.io/assets/css/style.css" />
+
+  <style>
+    /* Page-specific: matrix table styling (matches your academic look) */
+    .matrix-wrap { overflow-x: auto; }
+    .matrix {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+    }
+    .matrix th, .matrix td {
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .matrix thead th {
+      position: sticky;
+      top: 0;
+      background: rgba(251,251,252,0.95);
+      backdrop-filter: blur(6px);
+      z-index: 1;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    .matrix tbody tr:last-child td { border-bottom: none; }
+    .matrix .chapter-col {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 600;
+      color: var(--text);
+      width: 160px;
+    }
+    .matrix .tool-col { width: 1%; }
+    .matrix .cell-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .matrix .chip {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 4px 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(27,77,137,0.06);
+    }
+    /* Make buttons compact inside table */
+    .matrix .button { padding: 9px 10px; border-radius: 12px; }
+    @media (max-width: 860px){
+      .matrix th, .matrix td { padding: 12px; }
+      .matrix .chapter-col { width: 130px; }
+    }
+
+    /* Optional: hide Flowise floating launcher bubble. We'll open via click. */
+    flowise-chatbot { display: none !important; }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">🤖</div>
+        <div class="brand-text">
+          <div class="brand-title">Learning</div>
+          <div class="brand-subtitle">Tools and guided workflows</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="learning.html" aria-current="page">Learning</a>
+        <a class="nav-link" href="grading.html">Grading</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <section class="section">
+      <h1>Learning Tools by Chapter</h1>
+      <p class="lead">
+        Each row is a chapter. Each column opens a tool for that chapter.
+      </p>
+
+      <div class="matrix-wrap">
+        <table class="matrix" aria-label="Learning tools matrix by chapter">
+          <thead>
+            <tr>
+              <th class="chapter-col">Chapter</th>
+              <th class="tool-col">ChatGPT</th>
+              <th class="tool-col">NotebookLM</th>
+              <th class="tool-col">Embedding Model</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- NOTE:
+                 If later you have per-chapter links, replace the href values
+                 with chapter-specific URLs (or add ?chapter=1 etc).
+            -->
+            <!-- Chapter 1 -->
+            <tr>
+              <td class="chapter-col">Chapter 1</td>
+              <td>
+                <div class="cell-actions">
+                  <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313"
+                     target="_blank" rel="noopener noreferrer">Open →</a>
+                  <span class="chip">GPT</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell-actions">
+                  <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb"
+                     target="_blank" rel="noopener noreferrer">Open →</a>
+                  <span class="chip">Notebook</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell-actions">
+                  <button class="button button-secondary flowise-launch" type="button" data-chapter="1">
+                    Open Bot →
+                  </button>
+                  <span class="chip">Flowise</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Chapter 2 -->
+            <tr>
+              <td class="chapter-col">Chapter 2</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313"
+                   target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb"
+                   target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="2">Open Bot →</button>
+                <span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+
+            <!-- Chapters 3–14 (same links for now; chapter number tracked in data-chapter) -->
+            <!-- 3 -->
+            <tr>
+              <td class="chapter-col">Chapter 3</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="3">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 4 -->
+            <tr>
+              <td class="chapter-col">Chapter 4</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="4">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 5 -->
+            <tr>
+              <td class="chapter-col">Chapter 5</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="5">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 6 -->
+            <tr>
+              <td class="chapter-col">Chapter 6</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="6">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 7 -->
+            <tr>
+              <td class="chapter-col">Chapter 7</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="7">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 8 -->
+            <tr>
+              <td class="chapter-col">Chapter 8</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="8">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 9 -->
+            <tr>
+              <td class="chapter-col">Chapter 9</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="9">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 10 -->
+            <tr>
+              <td class="chapter-col">Chapter 10</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="10">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 11 -->
+            <tr>
+              <td class="chapter-col">Chapter 11</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="11">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 12 -->
+            <tr>
+              <td class="chapter-col">Chapter 12</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="12">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 13 -->
+            <tr>
+              <td class="chapter-col">Chapter 13</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="13">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+            <!-- 14 -->
+            <tr>
+              <td class="chapter-col">Chapter 14</td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://chatgpt.com/g/g-697a6f16b690819191fb9787e666b563-iems-313" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">GPT</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <a class="button" href="https://notebooklm.google.com/notebook/73e6d71c-a360-4d4a-b2a7-b6c9cc6d2dcb" target="_blank" rel="noopener noreferrer">Open →</a><span class="chip">Notebook</span>
+              </div></td>
+              <td><div class="cell-actions">
+                <button class="button button-secondary flowise-launch" type="button" data-chapter="14">Open Bot →</button><span class="chip">Flowise</span>
+              </div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="notes">
+      <h2>Notes</h2>
+      <div class="note">
+        <p><strong>Update for the chapters:</strong></p>
+        <ul>
+          <li>Chapter 1 is setting up at the beginning of the quarter.</li>
+          <li>Once a chapter is completed, update the GPT and NotebookLM with the new chapter.</li>
+          <li>Prevent students from asking for assignment solutions by adding instructions to GPT. (NotebookLM can’t enforce this.)</li>
+          <li>At the end of the quarter, all chapters included.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© <span id="year"></span> IEMS 313</div>
+      <div class="muted">Learning section</div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+
+  <!-- Flowise: init once, on demand, and auto-open. Track which chapter launched it. -->
+  <script type="module">
+    const FLOWISE_CHATFLOW_ID = "17a9c1ac-2447-4b7b-82e9-2388f00b9481";
+    const FLOWISE_API_HOST = "https://cloud.flowiseai.com";
+    let initialized = false;
+
+    async function initFlowiseOnce() {
+      if (initialized) return;
+
+      const mod = await import("https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js");
+      const Chatbot = mod.default ?? mod;
+
+      Chatbot.init({
+        chatflowid: FLOWISE_CHATFLOW_ID,
+        apiHost: FLOWISE_API_HOST,
+        theme: {
+          button: {
+            autoWindowOpen: { autoOpen: false, openDelay: 0, autoOpenOnMobile: false }
+          },
+          customCSS: `
+            /* Hide floating launcher bubble */
+            div[part="button"] { display: none !important; }
+          `
+        }
+      });
+
+      initialized = true;
+    }
+
+    async function openBotForChapter(chapter) {
+      await initFlowiseOnce();
+
+      // The most robust way to "open" without relying on shadow DOM is to re-init with autoOpen=true.
+      // Flowise embed is lightweight; we flip autoWindowOpen on demand.
+      const mod = await import("https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js");
+      const Chatbot = mod.default ?? mod;
+
+      Chatbot.init({
+        chatflowid: FLOWISE_CHATFLOW_ID,
+        apiHost: FLOWISE_API_HOST,
+        theme: {
+          button: {
+            autoWindowOpen: { autoOpen: true, openDelay: 0, autoOpenOnMobile: true }
+          },
+          customCSS: `
+            div[part="button"] { display: none !important; }
+          `
+        }
+      });
+
+      // Optional: store which chapter was selected (for later analytics / routing)
+      try { localStorage.setItem("iems313_selected_chapter", String(chapter)); } catch {}
+    }
+
+    document.querySelectorAll(".flowise-launch").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const chapter = btn.getAttribute("data-chapter") || "";
+        openBotForChapter(chapter);
+      });
+    });
+  </script>
+</body>
+</html>
