@@ -1,5 +1,6 @@
 # OLGA.github.io
-entire name: HAI-OLGA
+remove the grading part
+add the notification if the question is out of the knowledge base
 
 
 
